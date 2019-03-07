@@ -45,7 +45,7 @@ def particle_filter_lat(lat):
             if x_est < 0:
                 x_est = 0 
             # Save data in arrays for later plotting    
-            if np.abs(x-x_est) <= 30:
+            if np.abs(x-x_est) <= 100:
                 x_est = 0.8*x + 0.2*x_est
             x_est=x_est/100000
             x_est_out.append(x_est)
