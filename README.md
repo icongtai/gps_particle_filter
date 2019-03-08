@@ -1,2 +1,4 @@
-采用改良的粒子滤波算法对GPS数据中的速度和经纬度数据进行滤波，该算法对异常值的处理效果较好，但对正常值本身会存在一些波动。
-这个缺点对速度而言影响不大，几乎不影响急加速急减速的计算，但对绘制在地图上的经纬度坐标有一定影响。
+FPFG, an improved particle filter algorithm for GPS data, including speed data and poisition data(latitude and longitude). FPFG is good at filting singular value, but will add some random fluctuation to normal data.This defection almost has no effect on speed data, it has no effect on calculating acceleration value.But it may affect the accuracy on track, for drawing track on maps demands high quality posisiton data and has little tolerance even on small random error.
+Two functions in the package of FPFG, 
+To use FPFG, the only thing you need to do is importing the package, pf_speed function can filter speed data and pf_poision function can filter poision data(latitude or longitude).
+For more details, you can see example in 'function_test.py'
