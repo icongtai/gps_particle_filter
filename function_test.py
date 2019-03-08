@@ -1,4 +1,4 @@
-import pf_speed
+import pffg
 import pandas as pd
 import numpy as np
 path = r"D:\download\gps_example.csv"
@@ -17,7 +17,7 @@ speed = gps_example.iloc[:,3].copy()
 speed = add_random_error(speed, 10, np.random.rand() * 60, np.random.rand() * 60)
 import matplotlib.pyplot as plt
 t = [i for i in range(len(speed))]
-x_est_out = pf_speed.particle_filter_speed(speed)
+x_est_out = pffg.particle_filter_speed(speed)
 plt.figure(figsize=(16,24), facecolor = "white")
 graph_num = int(np.floor(len(speed) / 500))
 for i in range(graph_num):
