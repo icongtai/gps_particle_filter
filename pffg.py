@@ -10,7 +10,7 @@ def particle_filter_speed(speed):
     x_P = [] #粒子群
     # 用一个高斯分布随机的产生初始的粒子
     x_P = [(x + np.sqrt(V) * np.random.randn()) for i in range(N)]
-    z_out = [x + np.sqrt(x_R) * np.random.randn()]  #实际测量值
+    z_out = [x + np.sqrt(x_R) * np.random.randn()]  #实际测量值，np.random.randn()生成均值为0方差为1的正态分布随机数
     x_out = [x]  # 测量值
     x_est = x # 单步的particle filters估计值    
     x_est_out = [x_est] # particle filters估计值list
@@ -22,8 +22,8 @@ def particle_filter_speed(speed):
         x = speed[t] # 转移方程，直接用下一步的测量值作为转移方程+误差得到的值
         # 观察值含误差
         z = x + np.sqrt(x_R)*np.random.randn()
-        if np.abs(x - z) >= 10:
-            print(t)
+#         if np.abs(x - z) >= 10:
+#             print(t)
         for i in range(N):
             # 从先验p(x(k)|x(k-1))中采样
             x_P_update.append(x_P[i] + np.sqrt(x_N)*np.random.randn())
