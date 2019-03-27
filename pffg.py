@@ -1,7 +1,7 @@
 def particle_filter_speed(speed):
     import pandas as pd
     import numpy as np
-    x_N = 2 # 系统过程噪声的协方差，由于是一维的，这里就是方差，适用于速度滤波
+    x_N = 60 # 系统过程噪声的协方差，由于是一维的，这里就是方差，适用于速度滤波
     x_R = 1 # 测量的协方差，适用于速度滤波
     T = len(speed)
     N = 100 # 粒子数，越大效果越好，计算量也越大
@@ -57,7 +57,7 @@ def particle_filter_lat(lat):
     import pandas as pd
     import numpy as np
     lat = lat * 100000
-    x_N = 30 # 系统过程噪声的协方差，由于是一维的,这里就是方差，适用于速度滤波
+    x_N = 1500 # 系统过程噪声的协方差，由于是一维的,这里就是方差，适用于速度滤波
     x_R = 20 # 测量的协方差，适用于速度滤波
     T = len(lat)
     N = 100 # 粒子数，越大效果越好，计算量也越大
